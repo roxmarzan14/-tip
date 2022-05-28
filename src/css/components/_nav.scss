@@ -1,0 +1,55 @@
+.nav-main-container {
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    height: 80px;
+    padding: 20px;
+    top: 30px;
+    transition: all .5s ease-in;
+
+    &.active {
+        top: 0;
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        
+        .school-name {
+            color: $black;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            @include montserrat;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+
+            .list {
+                margin-left: 20px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                .links {
+                    text-decoration: none;
+                    color: $black;
+                    @include montserrat;
+                    font-weight: 700;
+                    font-size: 22px;
+                    line-height: 24px;
+                    text-align: center;
+                    letter-spacing: 0.2px;
+
+                }
+            }
+        }
+    }
+}
