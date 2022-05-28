@@ -1,4 +1,62 @@
 .hero-banner-main-container {
     background-color: $yellow-main;
     height: 100vh;
+
+    .hero-banner-container {
+        margin-top: 20%;
+        display: flex;
+        justify-content: space-between;
+
+        .section-one {
+            width: 500px;
+
+            .text {
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 24px;
+                text-align: left;
+                letter-spacing: 0.2px;
+                @include montserrat;
+                color: $light-red;
+                margin-bottom: 26px;
+            }
+
+            .hero-text {
+                font-weight: bolder;
+                font-size: 58px;
+                line-height: 80px;
+                color: $dark-gray;
+                letter-spacing: 0.2px;
+                letter-spacing: 0.2px;
+                @include montserrat;
+                margin-bottom: 26px;
+            }
+
+            .btn {
+                @include montserrat;
+                font-weight: 700;
+                font-size: 24px;
+                letter-spacing: 0.2px;
+                color: $black;
+                border: solid 4px $black;
+                border-radius: 15px;
+                padding: 10px 20px;
+            }
+        }
+
+        .section-two {
+            width: 500px;
+            height: 500px;
+            margin-top: -78px;
+
+            .main-logo {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.blog-main-container {
+    height: 100vh;
 }

@@ -5,3 +5,11 @@
 .col-lg-11 {
     width: 100%;
 }
+
+.scroll-snap {
+    scroll-snap-type: y mandatory;
+
+    .main-container {
+        scroll-snap-align: start;
+    }
+}
