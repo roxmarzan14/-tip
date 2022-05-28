@@ -6,6 +6,7 @@
         margin-top: 20%;
         display: flex;
         justify-content: space-between;
+        position: relative;
 
         .section-one {
             width: 500px;
@@ -25,7 +26,7 @@
                 font-weight: bolder;
                 font-size: 58px;
                 line-height: 80px;
-                color: $dark-gray;
+                color: $dark-blue;
                 letter-spacing: 0.2px;
                 letter-spacing: 0.2px;
                 @include montserrat;
@@ -54,9 +55,135 @@
                 height: 100%;
             }
         }
+
+        .scroll-down {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: absolute;
+            bottom: -100px;
+
+            .scroll {
+                width: 23px;
+                height: 50px;
+                border: solid 3px $black;
+                border-radius: 10px;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                padding: 2px;
+
+                &::before {
+                    content: '';
+                    height: 9px;
+                    width: 9px;
+                    background-color: $black;
+                    border-radius: 10px;
+                    z-index: 9;
+                    position: absolute;
+	                animation: slide-bottom 2s  infinite;
+
+                    @keyframes slide-bottom {
+                        0% {
+                            top: 0;
+                        }
+
+                        75% {
+                            top: 30px;
+                            opacity: 0;
+                        }
+
+                        100% {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
-.blog-main-container {
+.articles-main-container {
     height: 100vh;
+    background-color: $dark-blue;
+    padding-top: 33px;
+
+    .articles-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .hero-text {
+            width: fit-content;
+            color: $white;
+            font-weight: 700;
+            font-size: 58px;
+            line-height: 80px;
+            @include montserrat;
+            letter-spacing: 1px;
+            text-align: center;
+            border-bottom: solid 15px $yellow-main;
+        }
+
+        .articles {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 63px;
+            gap: 30px 0;
+
+            .article {
+                width: 328px;
+                height: 328px;
+                background-color: $white;
+                padding: 35px 40px;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+
+                &.active {
+                    &::before {
+                        content: 'Continue reading';
+                        height: 328px;
+                        width: 328px;
+                        position: absolute;
+                        background-color: $white;
+                        left: 0;
+                        top: 0;
+                    }
+                }
+
+                .icon {
+                    height: 70px;
+                    width: 70px;
+                    background-color: $light-red;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                }
+
+                .title {
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 32px;
+                    letter-spacing: 0.1px;
+                    color: $dark-blue;
+                    @include montserrat;
+                    margin-bottom: 20px;
+                    border-bottom: solid 3px $yellow-main;
+                }
+
+                .desc {
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 20px;
+                    letter-spacing: 0.2px;
+                    color: $light-gray;
+                    @include montserrat;
+                    height: 100px;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
 }

@@ -54,7 +54,6 @@ $(document).ready(function(){
         });
     })
 
-
     $.fn.displayBlog = function() {
         // fetching single blog data 
         var myString = window.location.href;
@@ -76,6 +75,33 @@ $(document).ready(function(){
 
     $.fn.displayBlog();
 
+    // displaying articles on homepage
+    $.fn.displayHomepage = function() {
+        onSnapshot(colRef, (snapshot) => {
+            let books = []
+            snapshot.docs.forEach(doc => {
+                books.push({ ...doc.data(), id: doc.id })
+            })
+
+            $('.articles-main-container .article').remove();
+    
+            for (let i = 0; i < books.length; i++) {
+                var bookTitle = (books[i].title);
+                var bookIndex = (books[i].id);
+                var bookDesc = (books[i].desc);
+                $('.articles-main-container .articles').append('<div class="article" data-id="' + bookIndex + '"><div class="icon"></div><div class="title">' + bookTitle + '</div><div class="desc">' + bookDesc + '</div></div>');
+            }
+
+            $('.articles-main-container .article').on('click', (e)=> {
+                var $this = $(e.currentTarget);
+                var text = $this.attr('data-id');
+                window.open('blogs.html?' + text);
+            });
+        })
+    }
+
+    $.fn.displayHomepage();
+
     // adding docs
     const addBookForm = document.querySelector('.add')
     $('.add').on('submit', (e) => {
@@ -85,6 +111,7 @@ $(document).ready(function(){
             title: addBookForm.title.value,
             author: addBookForm.author.value,
             content: addBookForm.content.value,
+            desc: addBookForm.desc.value,
             createdAt: serverTimestamp()
         })
         .then(() => {
