@@ -8,6 +8,9 @@
 
 .scroll-snap {
     scroll-snap-type: y mandatory;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
 
     .main-container {
         scroll-snap-align: start;

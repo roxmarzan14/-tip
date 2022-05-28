@@ -12039,6 +12039,14 @@ fieldset:disabled .btn {
 .scroll-snap {
   -ms-scroll-snap-type: y mandatory;
       scroll-snap-type: y mandatory;
+  overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .scroll-snap .main-container {
